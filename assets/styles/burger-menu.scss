@@ -1,0 +1,13 @@
+.burger {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  div {
+    height: 3px;
+    background-color: var(--color-txt-header);
+  }
+}

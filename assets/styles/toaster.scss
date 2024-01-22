@@ -1,0 +1,38 @@
+.toaster {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border: 1px solid var(--color-txt-header);
+  background-color: var(--color-bg-header);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+
+  * {
+    margin-bottom: 2rem;
+  }
+  svg {
+    align-self: end;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    opacity: .6;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .toast {
+    color: var(--color-txt-header);
+  }
+  .toast-success {
+    color: green;
+  }
+  .toast-error {
+    color: darkred;
+  }
+  .toast-info {
+    color: orange;
+  }
+}
