@@ -16,7 +16,7 @@ export function ResetPassword () {
          method: 'POST',
          body: data.email
       }).then(r => r.json()).then(d => {
-         if (d.error) {
+         if (Object.keys(d).length > 0) {
             EventBus.emit('ToastMessage', [{type: 'error', messages: [d.error]}])
          } else {
             window.location.href = "/"

@@ -8,7 +8,6 @@ import EventBus from "../hooks/EventBus";
 export function ReinitPassword () {
 
    const { token } = useParams()
-
    const {register, handleSubmit, formState: {isValid, isSubmitting, errors}} = useForm({
       mode: 'onBlur',
       resolver: yupResolver(reinitPasswordSchema)

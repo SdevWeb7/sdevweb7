@@ -54,9 +54,7 @@ class ResetPasswordController extends AbstractController
       $this->setTokenObjectInSession($resetToken);
 
       $this->addFlash('success', "Un mail vous a été envoyé, n'oubliez pas de regarder dans les spams. Ce lien expirera dans 1 heure");
-      return $this->json([
-         'success' => 'Email envoyé'
-      ]);
+      return $this->json([]);
    }
 
     #[Route('/reset/{token}', name: 'app_reset_password')]
