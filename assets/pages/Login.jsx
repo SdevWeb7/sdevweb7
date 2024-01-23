@@ -55,6 +55,7 @@ export function Login () {
             {errors.password && <span>{errors.password.message}</span>}
 
             <input type={"submit"} className={!isValid || isSubmitting ? '' : 'submit-valid'} onClick={handleSubmit(onSubmit)} value={'Connexion'} />
+            <a href="/reset_password">Mot de passe oublié</a>
 
          </form>
       )

@@ -11,7 +11,7 @@ export function Menu ({isOpen, setIsOpen}) {
    useEffect(() => {
       const timer = setTimeout(() => {
          document.addEventListener('click', handleClick)
-      }, 10)
+      }, 50)
 
       return () => {
          document.removeEventListener('click',handleClick)

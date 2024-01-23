@@ -12,3 +12,10 @@ export const loginSchemas = yup.object().shape({
    username: yup.string().email(emailPhrase).required(emailPhrase).typeError(emailPhrase),
    password: yup.string().required(passPhrase).min(6, passPhrase).typeError(passPhrase)
 })
+
+export const resetPasswordSchema = yup.object().shape({
+   email: yup.string().email(emailPhrase).required(emailPhrase).typeError(emailPhrase)
+})
+export const reinitPasswordSchema = yup.object().shape({
+   password: yup.string().required(passPhrase).min(6).typeError(passPhrase)
+})
