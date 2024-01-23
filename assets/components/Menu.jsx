@@ -5,17 +5,16 @@ import { linksVariants } from '../utils'
 import { createPortal } from "react-dom";
 import { useAppStore } from "../store";
 
-export function Menu ({isOpen, setIsOpen}) {
+export function Menu ({setIsOpen}) {
    const user = useAppStore.use.user()
 
    useEffect(() => {
-      const timer = setTimeout(() => {
-         document.addEventListener('click', handleClick)
-      }, 50)
+      document.addEventListener('click', handleClick)
+      document.body.style.overflow = 'hidden'
 
       return () => {
-         document.removeEventListener('click',handleClick)
-         clearTimeout(timer)
+         document.removeEventListener('click', handleClick)
+         document.body.style.overflow = 'visible'
       }
    }, [])
 
@@ -28,7 +27,9 @@ export function Menu ({isOpen, setIsOpen}) {
          initial={{opacity: 0}}
          exit={{opacity: 0}}
          animate={{opacity: 1}}
+         transition={{duration: .5}}
          className="background-menu">
+
          <motion.div
          initial={{x: 300}}
          exit={{x: 300}}
@@ -36,64 +37,39 @@ export function Menu ({isOpen, setIsOpen}) {
          transition={{duration: .5}}
          className="menu">
 
-         <motion.nav className="nav-menu">
-            <ul>
-               <motion.li
-                  variants={linksVariants}
-                  initial={'hidden'}
-                  exit={'hidden'}
-                  animate={isOpen ? 'visible' : 'hidden'}
-                  transition={{duration: 1, delay: .2}}>
+         <nav className="nav-menu">
+            <motion.ul
+               initial={'hidden'}
+               exit={'hidden'}
+               animate={'visible'}
+               transition={{staggerChildren: .15}}>
+
+               <motion.li variants={linksVariants}>
                   <NavLink to={"/"}>Home</NavLink>
                </motion.li>
 
-               <motion.li
-                  variants={linksVariants}
-                  initial={'hidden'}
-                  exit={'hidden'}
-                  animate={isOpen ? 'visible' : 'hidden'}
-                  transition={{duration: 1, delay: 0.3}}>
+               <motion.li variants={linksVariants}>
                   <NavLink to={"/todos"}>Todos</NavLink>
                </motion.li>
 
-               <motion.li
-                  variants={linksVariants}
-                  initial={'hidden'}
-                  exit={'hidden'}
-                  animate={isOpen ? 'visible' : 'hidden'}
-                  transition={{duration: 1, delay: .4}}>
+               <motion.li variants={linksVariants}>
                   <NavLink to={"/contact"}>Contact</NavLink>
                </motion.li>
 
                {user && Object.keys(user).length > 0 ?
-                  <motion.li
-                     variants={linksVariants}
-                     initial={'hidden'}
-                     exit={'hidden'}
-                     animate={isOpen ? 'visible' : 'hidden'}
-                     transition={{duration: 1, delay: .5}}>
+                  <motion.li variants={linksVariants}>
                      <a href="/logout">Déconnexion</a>
                   </motion.li> :
-               <><motion.li
-                  variants={linksVariants}
-                  initial={'hidden'}
-                  exit={'hidden'}
-                  animate={isOpen ? 'visible' : 'hidden'}
-                  transition={{duration: 1, delay: .5}}>
+               <><motion.li variants={linksVariants}>
                   <NavLink to={"/login"}>Connexion</NavLink>
                </motion.li>
 
-               <motion.li
-                  variants={linksVariants}
-                  initial={'hidden'}
-                  exit={'hidden'}
-                  animate={isOpen ? 'visible' : 'hidden'}
-                  transition={{duration: 1, delay: .6}}>
+               <motion.li variants={linksVariants}>
                   <NavLink to={"/subscribe"}>Inscription</NavLink>
                </motion.li></>}
 
-            </ul>
-         </motion.nav>
+            </motion.ul>
+         </nav>
       </motion.div>
       </motion.div>, document.body)
 }

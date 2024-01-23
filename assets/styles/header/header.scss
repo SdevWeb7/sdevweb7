@@ -1,0 +1,25 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg-header);
+  color: var(--color-txt-header);
+  padding: 15px 1rem;
+  border-bottom: 1px solid var(--color-txt-header);
+  box-shadow: 0 0 10px -3px var(--color-txt-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1001;
+}
+
+@media #{$mobile-min} {
+  .header {
+    padding: 15px 2rem;
+  }
+}
+
+@media #{$tablet-min} {
+  .header {
+    padding: 15px 4rem;
+  }
+}

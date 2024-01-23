@@ -1,16 +1,10 @@
 export const burgerVariants = {
-   variant1: {
-      closed: {rotate: 0},
-      opened: {rotate: -315, y: 6}
-   },
-   variant2: {
-      closed: {opacity: 1},
-      opened: {opacity: 0}
-   },
-   variant3: {
-      closed: {rotate: 0},
-      opened: {rotate: -225, y: -6}
-   },
+   hidden: {opacity: 0, rotate: -180},
+   visible: {opacity: 1, rotate: 0}
+}
+export const closeVariants = {
+   hidden: {opacity: 0, rotate: 180},
+   visible: {opacity: 1, rotate: 0}
 }
 export const linksVariants = {
    hidden: {opacity: 0},
@@ -18,10 +12,13 @@ export const linksVariants = {
 }
 
 export const headerVariants = {
-   hidden: {opacity: 0},
-   visible: {opacity: 1}
+   hidden: {y: -80, opacity: 0},
+   visible: {y: 0, opacity: 1}
 }
-
+export const footerVariants = {
+   hidden: {y: 60, opacity: 0},
+   visible: {y: 0, opacity: 1}
+}
 export const toasterVariants = {
    hidden: {x: -180, opacity: 0},
    visible: {x: 0, opacity: 1}

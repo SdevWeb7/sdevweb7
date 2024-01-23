@@ -1,0 +1,5 @@
+$mobile: 450px!default;
+$tablet: 900px!default;
+
+$mobile-min: "only screen and (min-width: #{$mobile})";
+$tablet-min: "only screen and (min-width: #{$tablet})";

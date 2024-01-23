@@ -1,0 +1,13 @@
+:root {
+  --color-txt: black;
+  --color-bg: white;
+  --color-txt-header: black;
+  --color-bg-header: whitesmoke;
+}
+
+[data-theme="dark"] {
+  --color-txt: white;
+  --color-bg: black;
+  --color-txt-header: whitesmoke;
+  --color-bg-header: black;
+}

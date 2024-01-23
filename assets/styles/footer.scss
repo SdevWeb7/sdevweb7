@@ -48,12 +48,12 @@
   }
 }
 
-@media screen and (min-width: 500px){
+@media #{$mobile-min} {
   .footer {
     padding: .5rem 2rem;
   }
 }
-@media screen and (min-width: 1000px){
+@media #{$tablet-min} {
   .footer {
     padding: .5rem 4rem;
   }

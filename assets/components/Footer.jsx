@@ -5,7 +5,7 @@ import { Github } from "../svg/Github";
 import { FrontendMentor } from "../svg/FrontendMentor";
 import { motion } from "framer-motion";
 import { useScrollY } from "../hooks/useScrollY";
-import { headerVariants } from "../utils";
+import { footerVariants } from "../utils";
 import { useTheme } from "../hooks/useTheme";
 
 export function Footer () {
@@ -19,7 +19,8 @@ export function Footer () {
       <motion.footer
          initial={'visible'}
          animate={isScrolledBot || window.scrollY < 30 ? 'visible' : 'hidden'}
-         variants={headerVariants}
+         variants={footerVariants}
+         transition={{duration: .5}}
          className="footer">
 
          <nav className="navbar">

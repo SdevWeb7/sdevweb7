@@ -2,26 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "spinner";
-@import "header";
-@import "burger-menu";
-@import "menu";
-@import "form";
-@import "toaster";
+@import "theme-colors";
+@import "responsive";
+@import "header/header";
+@import "links";
+@import "header/burger-menu";
+@import "header/menu";
 @import "footer";
+@import "utils/toaster";
+@import "utils/spinner";
+@import "form/form";
 
-:root {
-  --color-txt: black;
-  --color-bg: white;
-  --color-txt-header: black;
-  --color-bg-header: whitesmoke;
-}
-[data-theme="dark"] {
-  --color-txt: white;
-  --color-bg: black;
-  --color-txt-header: whitesmoke;
-  --color-bg-header: black;
-}
 body {
   color: var(--color-txt);
   background-color: var(--color-bg);
@@ -31,12 +22,12 @@ body {
   margin: 1rem 1rem 4rem 1rem;
 }
 
-@media screen and (min-width: 500px) {
+@media #{$mobile-min} {
   .main {
     margin: 2rem 2rem 4rem 2rem;
   }
 }
-@media screen and (min-width: 1000px) {
+@media #{$tablet-min} {
   .main {
     margin: 4rem;
   }
