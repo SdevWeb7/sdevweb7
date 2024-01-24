@@ -13,5 +13,9 @@ export const useAppStore = createSelectors(create((set) => ({
    user: null,
    updateUser(user) {
       set({user: user})
+   },
+   isOpenMenu: false,
+   setOpenMenu(value = null) {
+      set(state => ({isOpenMenu: value ?? !state.isOpenMenu}))
    }
 })));

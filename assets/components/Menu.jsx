@@ -5,22 +5,19 @@ import { linksVariants } from '../utils'
 import { createPortal } from "react-dom";
 import { useAppStore } from "../store";
 
-export function Menu ({setIsOpen}) {
+export function Menu () {
    const user = useAppStore.use.user()
+   const setOpenMenu = useAppStore.use.setOpenMenu()
 
    useEffect(() => {
       document.addEventListener('click', handleClick)
-      document.body.style.overflow = 'hidden'
 
       return () => {
          document.removeEventListener('click', handleClick)
-         document.body.style.overflow = 'visible'
       }
    }, [])
 
-   const handleClick = () => {
-      setIsOpen(false)
-   }
+   const handleClick = () => {setOpenMenu(false)}
 
    return createPortal(
       <motion.div
