@@ -52,7 +52,7 @@ export function Menu ({isOpen, setIsOpen}) {
                   exit={'hidden'}
                   animate={isOpen ? 'visible' : 'hidden'}
                   transition={{duration: 1, delay: .35}}>
-                  <NavLink to={"/todos"}>Todos</NavLink>
+                  <NavLink to={"/todos"}>Todolist</NavLink>
                </motion.li>
 
                <motion.li

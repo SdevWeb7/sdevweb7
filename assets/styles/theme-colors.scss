@@ -1,13 +1,25 @@
 :root {
-  --color-txt: black;
-  --color-bg: white;
-  --color-txt-header: black;
-  --color-bg-header: whitesmoke;
+  --color-txt1: #36536b;
+  --color-bg1:  #EDF3F8;
+  --color-txt2: #36536b;
+  --color-bg2:  #EDF3F8;
 }
 
 [data-theme="dark"] {
-  --color-txt: white;
-  --color-bg: black;
-  --color-txt-header: whitesmoke;
-  --color-bg-header: black;
+  --color-txt1: white;
+  --color-bg1: black;
+  --color-txt2: white;
+  --color-bg2: black;
 }
+
+
+.colors {
+  color: #FBFCFE;
+  color: #36536B;
+  color: #1B262F;
+  color: #DA6D97;
+  color: #BA4270;
+  color: #6C8294;
+}
+
+/*  grafikart: bg: #f7fafb  */

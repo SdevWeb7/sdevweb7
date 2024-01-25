@@ -1,7 +1,6 @@
 .footer {
   padding: .5rem 1rem;
-  border-top: 1px solid var(--color-txt);
-  box-shadow: -0px -2px 5px -3px var(--color-txt);
+  box-shadow: 0 0 10px -3px var(--color-txt2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,30 +8,27 @@
   bottom: 0;
   left: 0;
   right: 0;
-  color: var(--color-txt-header);
-  background-color: var(--color-bg-header);
+  color: var(--color-txt2);
+  background-color: var(--color-bg2);
 
   .navbar {
     display: flex;
 
-    a {
-      margin-right: 1rem;
-    }
-
     svg {
-      width: 25px;
-      height: 25px;
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 2rem;
     }
   }
 
   .btn-theme {
-    border: 1px solid var(--color-txt);
-    width: 3rem;
+    box-shadow: 0 0 5px 1px var(--color-txt1);
+    width: 2.7rem;
     height: 1.5rem;
     border-radius: 10rem;
     display: flex;
     align-items: center;
-    padding: 0 5px;
+    padding: .2rem .4rem;
     cursor: pointer;
 
     &[data-isdark="true"] {
@@ -40,9 +36,11 @@
     }
 
     .btn {
-      height: 75%;
-      width: 50%;
-      background-color: var(--color-txt);
+      opacity: .7;
+      box-shadow: 0 0 1px 1px var(--color-txt1);
+      height: 100%;
+      width: 60%;
+      background-color: var(--color-txt1);
       border-radius: 50%;
     }
   }

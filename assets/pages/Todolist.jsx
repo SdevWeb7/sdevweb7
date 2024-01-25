@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export function Todos () {
+export function Todolist () {
 
    return (
       <>

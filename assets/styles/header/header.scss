@@ -1,25 +1,64 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: var(--color-bg-header);
-  color: var(--color-txt-header);
-  padding: 15px 1rem;
-  border-bottom: 1px solid var(--color-txt-header);
-  box-shadow: 0 0 10px -3px var(--color-txt-header);
+  background-color: var(--color-bg2);
+  color: var(--color-txt2);
+  padding: 0 1rem;
+  box-shadow: 0 0 10px -3px var(--color-txt2);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1001;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+
+    a:not(.logo-container) {
+      display: none;
+
+    }
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    opacity: 1;
+
+    p {
+      font-family: Designer;
+      font-size: 1.3rem;
+    }
+    .logo {
+      font-family: Planets;
+      font-size: 2rem;
+      margin-right: .4rem;
+      transform: translateY(2px);
+    }
+  }
+
+  .navlink {
+    padding-top: .3rem;
+  }
+
 }
 
 @media #{$mobile-min} {
   .header {
-    padding: 15px 2rem;
+    padding: 0 2rem;
+
+    .navbar {
+      a:not(.logo-container) {
+        display: inline;
+      }
+    }
   }
 }
 
 @media #{$tablet-min} {
   .header {
-    padding: 15px 4rem;
+    padding: 0 4rem;
   }
 }

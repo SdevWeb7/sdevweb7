@@ -1,25 +1,9 @@
 a {
-  font-weight: 500;
-  position: relative;
-  opacity: .6;
-
-  &:after {
-    position: absolute;
-    content: '';
-    bottom: -4px;
-    left: 50%;
-    right: 50%;
-    height: 1px;
-    background-color: var(--color-txt-header);
-    transition: all .4s ease-in-out;
-  }
+  opacity: .7;
+  font-family: Comic;
+  font-size: 1rem;
 
   &.active, &:hover {
     opacity: 1;
-
-    &:after {
-      left: 0;
-      right: 0;
-    }
   }
 }

@@ -4,12 +4,13 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Layout } from "./pages/Layout";
 import { Contact } from "./pages/Contact";
-import { Todos } from "./pages/Todos";
+import { Todolist } from "./pages/Todolist";
 import { Subscribe } from "./pages/Subscribe";
 import { useAppStore } from "./store";
 import { Login } from "./pages/Login";
 import { ResetPassword } from "./pages/ResetPassword";
 import { ReinitPassword } from "./pages/ReinitPassword";
+import { Projects } from "./pages/Projects";
 
 function App () {
 
@@ -28,8 +29,9 @@ function App () {
                <Route path={'/subscribe'} element={<Subscribe />} />
                <Route path={'/login'} element={<Login />} />
                <Route path={'/reset_password'} element={<ResetPassword />} />
+               <Route path={'/projects'} element={<Projects />} />
                <Route path={'/contact'} element={<Contact />} />
-               <Route path={'/todos'} element={<Todos />} />
+               <Route path={'/todolist'} element={<Todolist />} />
                <Route path={'/*'} element={<NotFound />} />
             </Route>
 

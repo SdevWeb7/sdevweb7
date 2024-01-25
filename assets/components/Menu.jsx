@@ -42,11 +42,11 @@ export function Menu () {
                transition={{staggerChildren: .15}}>
 
                <motion.li variants={linksVariants}>
-                  <NavLink to={"/"}>Home</NavLink>
+                  <NavLink to={"/projects"}>Projects</NavLink>
                </motion.li>
 
                <motion.li variants={linksVariants}>
-                  <NavLink to={"/todos"}>Todos</NavLink>
+                  <NavLink to={"/todolist"}>Todolist</NavLink>
                </motion.li>
 
                <motion.li variants={linksVariants}>

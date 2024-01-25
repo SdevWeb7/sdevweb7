@@ -20,9 +20,14 @@ export function Header () {
          className="header">
 
          <nav className="navbar">
-            <NavLink to={'/'}>
-               SDevWeb
+            <NavLink to={'/'} className={'logo-container'}>
+               <h1 className={'logo'}>J</h1>
+               <p>sdevweb</p>
             </NavLink>
+
+            <NavLink className={'navlink'} to={'/projects'}>Projects</NavLink>
+            <NavLink className={'navlink'} to={'/todolist'}>Todolist</NavLink>
+            <NavLink className={'navlink'} to={'/contact'}>Contact</NavLink>
          </nav>
 
          <Burger />
