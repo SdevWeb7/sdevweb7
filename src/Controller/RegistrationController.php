@@ -55,7 +55,7 @@ class RegistrationController extends AbstractController
       );
 
       $this->addFlash('success', "Merci pour votre inscription n'oubliez pas de confirmer votre adresse email");
-      return $this->json(["Inscription réussie"]);
+      return $this->json([]);
    }
 
 

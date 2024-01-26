@@ -15,7 +15,7 @@ class LoginController extends AbstractController
          return $this->json([]);
       }
       $this->addFlash('success', 'Vous êtes connecté!');
-      return $this->json($this->getUser(), 200, [], ['groups' => 'api:show:user']);
+      return $this->json([]);
    }
 
    #[Route(path: '/me', name: 'api_me')]

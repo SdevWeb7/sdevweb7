@@ -26,8 +26,8 @@ export function Subscribe () {
          }
          return r.json()
       }).then(d => {
-         if (typeof d[0] === "object") {
-            setSymfonyErrors(d)
+         if (Object.keys(d).length > 0) {
+            setSymfonyErrors(d.error)
          } else {
             window.location.href = '/'
          }

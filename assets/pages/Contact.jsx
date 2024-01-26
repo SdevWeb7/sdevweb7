@@ -20,12 +20,12 @@ export function Contact () {
          },
          body: JSON.stringify(data)
       }).then(r => {
-         if (!r.ok && r.status !== 401) {
+         if (!r.ok) {
             EventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
          }
          return r.json()
       }).then(d => {
-         if (d.error) {
+         if (Object.keys(d).length > 0) {
             setSymfonyError(d.error)
          } else {
             window.location.href = '/'
