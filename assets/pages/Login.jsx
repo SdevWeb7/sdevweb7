@@ -5,6 +5,7 @@ import { loginSchemas } from "../FormAuthSchemas";
 import EventBus from "../hooks/EventBus";
 import { useAppStore } from "../store";
 import { Spinner } from "../components/Spinner";
+import { Fader } from "../components/Fader";
 
 export function Login () {
 
@@ -43,6 +44,7 @@ export function Login () {
       window.location = '/'
    } else {
       return (
+         <Fader>
          <form className={'auth-form'}>
             <h1>Connexion</h1>
 
@@ -58,6 +60,7 @@ export function Login () {
             <a href="/reset_password">Mot de passe oublié</a>
 
          </form>
+         </Fader>
       )
    }
 

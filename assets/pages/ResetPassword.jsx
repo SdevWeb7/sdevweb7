@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPasswordSchema } from "../FormAuthSchemas";
 import EventBus from "../hooks/EventBus";
+import { Fader } from "../components/Fader";
 
 export function ResetPassword () {
 
@@ -25,6 +26,7 @@ export function ResetPassword () {
    }
 
    return (
+      <Fader>
       <form className={'auth-form'}>
          <h1>Réinitialisation du mot de passe</h1>
 
@@ -33,9 +35,10 @@ export function ResetPassword () {
          {errors.email && <span>{errors.email.message}</span>}
 
 
-         <input type={"submit"} className={!isValid || isSubmitting ? '' : 'submit-valid'} onClick={handleSubmit(onSubmit)} value={'Recevoir un email de réinitialisation'} />
+         <input type={"submit"} className={!isValid || isSubmitting ? '' : 'submit-valid'} onClick={handleSubmit(onSubmit)} value={'Faire la demande'} />
 
       </form>
+      </Fader>
    )
 
 }

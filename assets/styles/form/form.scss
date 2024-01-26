@@ -2,17 +2,31 @@
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  border: .1rem solid var(--color-txt2);
-  padding: 1rem 2rem;
-  margin: 4rem auto 0 auto;
+  background-color: var(--color-bg1);
+  box-shadow: 0 0 10px -3px var(--color-txt2);
+  padding: 1rem 2rem 2rem 2rem;
+  margin: 5rem auto 0 auto;
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
+    font-weight: bold;
+    word-break: break-word;
+  }
+  p {
+    margin-top: 1rem;
+  }
+  span {
+    margin-top: .5rem;
+    font-size: .9rem;
   }
 
   input {
     margin-top: 2rem;
+    background-color: var(--color-bg);
+    color: var(--color-txt1);
+    padding: .7rem;
+    box-shadow: 0 0 10px -3px var(--color-txt2);
   }
 
 
@@ -27,5 +41,10 @@
         opacity: 1;
       }
     }
+  }
+
+  a {
+    margin-top: 1rem;
+    text-align: center;
   }
 }

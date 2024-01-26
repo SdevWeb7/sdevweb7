@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 
 const emailPhrase = 'Veuillez entrer une adresse email valide.';
-const passPhrase = 'Veuillez entrer un mot de passe valide (minimum 6 caractères.';
+const passPhrase = 'Veuillez entrer un mot de passe valide (minimum six caractères).';
 
 export const registerSchemas = yup.object().shape({
    email: yup.string().email(emailPhrase).required(emailPhrase).typeError(emailPhrase),

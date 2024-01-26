@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { reinitPasswordSchema } from "../FormAuthSchemas";
 import { useParams } from "react-router-dom";
 import EventBus from "../hooks/EventBus";
+import { Fader } from "../components/Fader";
 
 export function ReinitPassword () {
 
@@ -27,6 +28,7 @@ export function ReinitPassword () {
    }
 
    return (
+      <Fader>
       <form className={'auth-form'}>
          <h1>Changement du mot de passe</h1>
 
@@ -48,10 +50,11 @@ export function ReinitPassword () {
          <input
             type={"submit"}
             onClick={handleSubmit(onSubmit)}
-            value={'Changer mot de passe'}
+            value={'Changer le mot de passe'}
             className={!isValid || isSubmitting ? '' : 'submit-valid'} />
 
       </form>
+      </Fader>
    )
 
 }

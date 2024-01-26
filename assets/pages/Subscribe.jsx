@@ -5,6 +5,7 @@ import { registerSchemas } from "../FormAuthSchemas";
 import EventBus from "../hooks/EventBus";
 import { Spinner } from "../components/Spinner";
 import { useAppStore } from "../store";
+import { Fader } from "../components/Fader";
 
 export function Subscribe () {
    const user = useAppStore.use.user()
@@ -40,6 +41,7 @@ export function Subscribe () {
       window.location = '/'
    } else {
       return (
+         <Fader>
          <form className={'auth-form'}>
             <h1>Inscription</h1>
 
@@ -61,6 +63,7 @@ export function Subscribe () {
                    onClick={handleSubmit(onSubmit)} value={'Inscription'}/>
 
          </form>
+         </Fader>
       )
    }
 }

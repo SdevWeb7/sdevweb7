@@ -25,7 +25,7 @@ body {
     content: '';
     top: 7rem;
     background: var(--color-txt1);
-    opacity: .05;
+    opacity: .1;
     width: 30rem;
     height: 30rem;
     z-index: -1;
@@ -54,7 +54,7 @@ body {
 @media #{$tablet-min} {
   body {
     &:after {
-      opacity: 0.05;
+      opacity: 0.1;
     }
   }
   .main {
