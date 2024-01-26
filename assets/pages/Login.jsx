@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchemas } from "../FormAuthSchemas";
+import { loginSchemas } from "../FormSchemas";
 import EventBus from "../hooks/EventBus";
 import { useAppStore } from "../store";
 import { Spinner } from "../components/Spinner";

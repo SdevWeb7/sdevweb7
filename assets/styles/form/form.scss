@@ -4,7 +4,7 @@
   flex-direction: column;
   background-color: var(--color-bg1);
   box-shadow: 0 0 10px -3px var(--color-txt2);
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 2rem;
   margin: 5rem auto 0 auto;
 
   h1 {
@@ -21,12 +21,13 @@
     font-size: .9rem;
   }
 
-  input {
+  input, textarea {
     margin-top: 2rem;
     background-color: var(--color-bg);
     color: var(--color-txt1);
     padding: .7rem;
     box-shadow: 0 0 10px -3px var(--color-txt2);
+    resize: none;
   }
 
 

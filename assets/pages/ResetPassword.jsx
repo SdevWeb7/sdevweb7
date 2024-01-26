@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { resetPasswordSchema } from "../FormAuthSchemas";
+import { resetPasswordSchema } from "../FormSchemas";
 import EventBus from "../hooks/EventBus";
 import { Fader } from "../components/Fader";
 
