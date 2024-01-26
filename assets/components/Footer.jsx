@@ -24,16 +24,16 @@ export function Footer () {
          className="footer">
 
          <nav className="navbar">
-            <Link to={'https://www.linkedin.com/in/steven-durand-1486b82a1/'}>
+            <Link to={'https://www.linkedin.com/in/steven-durand-1486b82a1/'} target={'_blank'}>
                <Linkedin />
             </Link>
 
-            <Link to={'https://github.com/SdevWeb7'}>
+            <Link to={'https://github.com/SdevWeb7'} target={'_blank'}>
                <Github />
             </Link>
 
 
-            <Link to={'https://www.frontendmentor.io/profile/Veustyle'}>
+            <Link to={'https://www.frontendmentor.io/profile/Veustyle'} target={'_blank'}>
                <FrontendMentor />
             </Link>
 
