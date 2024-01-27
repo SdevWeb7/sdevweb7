@@ -11,8 +11,10 @@
 @import "header/burger-menu";
 @import "header/menu";
 @import "footer";
+@import "main";
 @import "utils/toaster";
 @import "utils/spinner";
+@import "home";
 @import "form/form";
 
 body {
@@ -43,22 +45,12 @@ body {
     border-bottom-right-radius: 50%;
   }
 }
-.main {
-  margin: 1rem 1rem 4rem 1rem;
-}
 
-@media #{$mobile-min} {
-  .main {
-    margin: 2rem 2rem 4rem 2rem;
-  }
-}
+
 @media #{$tablet-min} {
   body {
     &:after {
       opacity: 0.1;
     }
-  }
-  .main {
-    margin: 4rem;
   }
 }

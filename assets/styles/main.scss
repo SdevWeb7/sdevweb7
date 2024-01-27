@@ -1,0 +1,25 @@
+.main {
+  margin: 1rem 1rem 4rem 1rem;
+
+  h1 {
+   text-align: center;
+    font-family: CocoSharpBold;
+    font-size: 3rem;
+  }
+  p {
+    font-family: CocoSharp;
+    font-size: 1.2rem;
+  }
+}
+
+
+@media #{$mobile-min} {
+  .main {
+    margin: 2rem 2rem 4rem 2rem;
+  }
+}
+@media #{$tablet-min} {
+  .main {
+    margin: 2rem 4rem 4rem 4rem;
+  }
+}

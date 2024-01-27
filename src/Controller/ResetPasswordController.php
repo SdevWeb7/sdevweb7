@@ -53,7 +53,7 @@ class ResetPasswordController extends AbstractController
       $mailer->send($email);
       $this->setTokenObjectInSession($resetToken);
 
-      $this->addFlash('success', "Un mail vous a été envoyé, n'oubliez pas de regarder dans les spams. Ce lien expirera dans 1 heure");
+      $this->addFlash('success', "Un mail vous a été envoyé, n'oubliez pas de regarder dans les spams. Ce lien expirera dans une heure");
       return $this->json([]);
    }
 

@@ -1,0 +1,78 @@
+.home {
+  display: grid;
+  grid-template-areas: "symfony arrow1 react"
+                        ". arrow2 ."
+                        ". css .";
+  grid-template-columns: 1fr 10rem 1fr;
+  justify-items: center;
+  align-items: center;
+  margin: 3rem 0;
+  row-gap: 3rem;
+
+  & > * {
+    width: 20rem;
+  }
+
+  .symfony {
+    grid-area: symfony;
+  }
+  .react {
+    grid-area: react;
+  }
+  .arrow1 {
+    grid-area: arrow1;
+    width: 3rem;
+    height: 3rem;
+  }
+  .arrow2 {
+    grid-area: arrow2;
+    width: 3rem;
+    height: 3rem;
+    transform: rotate(90deg);
+  }
+  .css {
+    grid-area: css;
+  }
+
+  table {
+    text-align: center;
+    background-color: var(--color-bg1);
+    box-shadow: 0 0 10px -3px var(--color-txt2);
+    border: 1px solid var(--color-txt1);
+
+    tr {
+      border: 1px solid var(--color-txt1);
+      gap: 1rem;
+      td, th {
+        padding: 1rem;
+      }
+    }
+    th {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 840px){
+  .home {
+    gap: 2rem;
+    justify-items: center;
+    grid-template-areas: "symfony"
+                          "arrow1"
+                          "react"
+                          "arrow2"
+                          "css";
+    grid-template-columns: 1fr;
+
+    .arrow1 {
+      transform: rotate(90deg);
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .home {
+    & > * {
+      max-width: 16rem;
+    }
+  }
+}
