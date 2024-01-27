@@ -46,7 +46,7 @@ export function Home () {
                <td>Components, Router</td>
             </tr>
             <tr>
-               <td>Zustand, ReduxToolkit</td>
+               <td>Zustand, ReduxToolkit, RxJS</td>
             </tr>
             <tr>
                <td>ReactHookForm (+yup)</td>
