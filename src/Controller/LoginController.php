@@ -12,7 +12,7 @@ class LoginController extends AbstractController
    public function apilogin(): JsonResponse
    {
       if (!$this->getUser()) {
-         return $this->json([]);
+         return $this->json(['Erreur de connexion']);
       }
       $this->addFlash('success', 'Vous êtes connecté!');
       return $this->json([]);
