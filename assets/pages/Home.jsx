@@ -63,16 +63,16 @@ export function Home () {
             </thead>
             <tbody>
             <tr>
-               <td>SEO, Sémantique</td>
+               <td>Sémantique, SEO, Accessibilité</td>
             </tr>
             <tr>
-               <td>SCSS</td>
+               <td>Grid, Flexbox, Animations</td>
             </tr>
             <tr>
-               <td>Grid, Flexbox</td>
+               <td>SCSS, Tailwindcss, Bootstrap</td>
             </tr>
             <tr>
-               <td>Animations</td>
+               <td>SVG</td>
             </tr>
             </tbody>
          </table>
