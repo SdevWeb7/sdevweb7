@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowDouble } from "../svg/ArrowDouble";
+import { Fader } from "../components/Fader";
 
 export function Home () {
 
@@ -7,7 +8,8 @@ export function Home () {
       <><h1>Parcours</h1>
 
       <div className={'home'}>
-         <table className={'symfony'}>
+         <Fader className={'symfony'}>
+         <table>
             <thead>
                <tr>
                   <th>Symfony</th>
@@ -28,11 +30,12 @@ export function Home () {
                </tr>
             </tbody>
          </table>
+         </Fader>
 
 
       <ArrowDouble className={'arrow1'} />
-
-         <table className={'react'}>
+         <Fader className={'react'}>
+         <table>
             <thead>
             <tr>
                <th>React-JS</th>
@@ -53,9 +56,12 @@ export function Home () {
             </tr>
             </tbody>
          </table>
+         </Fader>
+
 
          <ArrowDouble className={'arrow2'} />
-         <table className={'css'}>
+         <Fader className={'css'}>
+         <table>
             <thead>
             <tr>
                <th>HTML/CSS</th>
@@ -76,6 +82,7 @@ export function Home () {
             </tr>
             </tbody>
          </table>
+         </Fader>
       </div>
       </>)
 }
