@@ -2,7 +2,7 @@ import React from "react";
 import { motion, useInView } from 'framer-motion'
 import { useRef } from "react";
 
-export function Fader ({children, className}) {
+export function Fader ({children, className = ''}) {
 
    const divRef = useRef(null)
    const { isInView } = useInView(divRef)
