@@ -1,3 +1,74 @@
 .todolist {
+  .add-todo, .todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
 
+    .btn {cursor: pointer;}
+    .checkbox {
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .add-todo {
+    margin: 2rem 0;
+
+    .btn-add {
+      transform: rotate(45deg);
+    }
+    input {
+      width: 70%;
+      border-radius: .5rem;
+      padding: .3rem 1rem;
+      font-family: Inter, sans-serif;
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+  .todo {
+    margin-bottom: 1rem;
+
+    p {
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: Inter, sans-serif;
+      word-break: break-word;
+      width: 60%;
+      padding: 0 .5rem;
+      text-align: center;
+    }
+  }
+
+  .filter {
+    margin-top: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    
+    button {
+      font-weight: bolder;
+      font-size: 1.2rem;
+      opacity: .6;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.todolist {
+  .filter, .add-todo, .todo, .add-todo .checkbox, .todo .checkbox, .add-todo input {
+    border: 1px solid var(--color-txt1);
+    box-shadow: 0 0 10px -3px var(--color-txt2);
+    background-color: var(--color-bg1);
+  }
 }
