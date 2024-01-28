@@ -16,7 +16,7 @@ class Todo
 
     #[ORM\Column(length: 255)]
     #[Groups(['api:show:user'])]
-    private ?string $value = null;
+    private ?string $value;
 
     #[ORM\Column]
     #[Groups(['api:show:user'])]
@@ -36,7 +36,7 @@ class Todo
         return $this->value;
     }
 
-    public function setContent(string $value): static
+    public function setValue(string $value): static
     {
         $this->value = $value;
 

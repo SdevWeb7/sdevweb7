@@ -19,7 +19,7 @@ class TodolistController extends AbstractController {
       $user = $this->getUser();
 
       if (!$user) {
-         return $this->json(['error' => 'utilisateur introuvable']);
+         return $this->json(['error' => 'utilisateur introuvable'], 500);
       }
 
       $todo = $serializer->deserialize($request->getContent(), Todo::class, 'json');
@@ -32,29 +32,12 @@ class TodolistController extends AbstractController {
       return $this -> json([]);
    }
 
-   #[Route( '/toggle_todo', name: 'api_toggle_todo', methods: ['POST'])]
-   public function toggle (Request $request, TodoRepository $todoRepository, EntityManagerInterface $manager) : JsonResponse {
-      $user = $this->getUser();
-
-      if (!$user) {
-         return $this->json(['error' => 'utilisateur introuvable']);
-      }
-
-      $todo = $todoRepository->findOneBy(['value' => $request->getContent()]);
-
-      $todo->setIsChecked(!$todo->isIsChecked());
-      $manager->persist($todo);
-      $manager->flush();
-
-      return $this -> json([]);
-   }
-
    #[Route( '/delete_todo', name: 'api_delete_todo', methods: ['POST'])]
    public function delete (Request $request, TodoRepository $todoRepository, EntityManagerInterface $manager) : JsonResponse {
       $user = $this->getUser();
 
       if (!$user) {
-         return $this->json(['error' => 'utilisateur introuvable']);
+         return $this->json(['error' => 'utilisateur introuvable'], 500);
       }
 
       $todo = $todoRepository->findOneBy(['value' => $request->getContent()]);
@@ -67,8 +50,37 @@ class TodolistController extends AbstractController {
       return $this -> json([]);
    }
 
+   #[Route( '/toggle_todo', name: 'api_toggle_todo', methods: ['POST'])]
+   public function toggle (Request $request, TodoRepository $todoRepository, EntityManagerInterface $manager) : JsonResponse {
+      $user = $this->getUser();
+
+      if (!$user) {
+         return $this->json(['error' => 'utilisateur introuvable'], 500);
+      }
+
+      $todo = $todoRepository->findOneBy(['value' => $request->getContent()]);
+
+      $todo->setIsChecked(!$todo->isIsChecked());
+      $manager->persist($todo);
+      $manager->flush();
+
+      return $this -> json([]);
+   }
+
    #[Route( '/reorder_todo', name: 'api_reorder_todo', methods: ['POST'])]
-   public function reorder () : JsonResponse {
+   public function reorder (Request $request, EntityManagerInterface $manager) : JsonResponse {
+      $user = $this->getUser();
+
+      if (!$user) {
+         return $this->json(['error' => 'utilisateur introuvable'], 500);
+      }
+
+      $todos = $request->getContent();
+
+      dd($todos);
+      $manager->persist($user);
+      $manager->flush();
+
       return $this -> json([]);
    }
 }

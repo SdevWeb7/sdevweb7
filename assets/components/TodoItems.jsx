@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { deleteTask, setTasks, toggleTask } from "../redux";
+import { setTasks } from "../redux";
 import { useDispatch, useSelector } from "react-redux";
-import { Checked } from "../svg/Checked";
-import { IconClose } from "../svg/IconClose";
 import { useAppStore } from "../store";
-import eventBus from "../hooks/EventBus";
+import { TodoItem } from "./TodoItem";
+import { Reorder } from 'framer-motion'
 
 export function TodoItems () {
    const user = useAppStore.use.user()
@@ -18,40 +17,6 @@ export function TodoItems () {
       }
    }, [user])
 
-   const handleToggleTask = (value) => {
-      if (user && Object.keys(user).length > 0) {
-         fetch('/toggle_todo', {
-            method: 'POST',
-            body: value
-         }).then(r => {
-            if (!r.ok) {
-               eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
-            } else {
-               dispatch(toggleTask(value))
-            }
-         })
-      } else {
-         dispatch(toggleTask(value))
-      }
-   }
-
-   const handleDeleteTask = (value) => {
-      if (user && Object.keys(user).length > 0) {
-         fetch('/delete_todo', {
-            method: 'POST',
-            body: value
-         }).then(r => {
-            if (!r.ok) {
-               eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
-            } else {
-               dispatch(deleteTask(value))
-            }
-         })
-      } else {
-         dispatch(deleteTask(value))
-      }
-   };
-
 
    const filteredTodos = tasks.filter(todo => {
       switch (filter) {
@@ -63,24 +28,17 @@ export function TodoItems () {
             return true;
       }
    });
+
+
    return (<>
-      {filteredTodos.map(t =>
-         <div
-            key={Date.now() * Math.floor(Math.random() * 100)}
-            className="todo">
 
-            <div
-               className="checkbox"
-               onClick={() => handleToggleTask(t.value)}>
-               {t.isChecked && <Checked />}
-            </div>
+      <Reorder.Group
+         axis="y"
+         values={tasks}
+         onReorder={() => setTasks(tasks)}>
 
-            <p>{t.value}</p>
-
-            <IconClose onClick={() => handleDeleteTask(t.value)} className={'btn'} />
-
-         </div>
-      )}
+         {filteredTodos.map(t => <TodoItem key={Date.now() * Math.floor(Math.random() * 100)} value={t} />)}
+      </Reorder.Group>
 
       <div className="filter">
          <button
