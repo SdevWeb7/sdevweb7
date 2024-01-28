@@ -3,10 +3,14 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 const todoSlice = createSlice({
    name: 'todo',
    initialState: [
-      {value: 'Tache1', isChecked: false},
-      {value: 'Tache2', isChecked: true}
+      {value: 'Vous pouvez tester la todolist', isChecked: true},
+      {value: 'Mais il faudra vous connecter', isChecked: false},
+      {value: 'Pour persister les données', isChecked: true}
    ],
    reducers: {
+      setTasks: (state, action) => {
+         return action.payload;
+      },
       addTask: (state, action) => {
          state.push({
             value: action.payload.value,
@@ -23,7 +27,7 @@ const todoSlice = createSlice({
    }
 })
 
-export const { addTask, deleteTask, toggleTask } = todoSlice.actions
+export const { setTasks, addTask, deleteTask, toggleTask } = todoSlice.actions
 
 export const store = configureStore({
    reducer: {

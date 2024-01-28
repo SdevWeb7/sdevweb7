@@ -4,8 +4,11 @@ import { useDispatch } from "react-redux";
 import { Checked } from "../svg/Checked";
 import EventBus from "../hooks/EventBus";
 import { IconClose } from "../svg/IconClose";
+import { useAppStore } from "../store";
+import eventBus from "../hooks/EventBus";
 
 export function AddTodo () {
+   const user = useAppStore.use.user()
    const [newTask, setNewTask] = useState({value: '', isChecked: false})
    const dispatch = useDispatch()
 
@@ -23,7 +26,26 @@ export function AddTodo () {
       if (newTask.value.length < 5) {
          EventBus.emit('ToastMessage', [{type: 'info', messages: ['Veuillez entrer plus de cinq caractères.']}])
       } else {
-         dispatch(addTask(newTask))
+         if (user && Object.keys(user).length > 0) {
+               fetch('/add_todo', {
+                  method: 'POST',
+                  headers: {
+                     'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                     value: newTask.value,
+                     isChecked: newTask.isChecked
+                  })
+               }).then(r => {
+                  if (!r.ok) {
+                     eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
+                  } else {
+                     dispatch(addTask(newTask))
+                  }
+               })
+         } else {
+            dispatch(addTask(newTask))
+         }
       }
    }
 

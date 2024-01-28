@@ -1,20 +1,55 @@
-import React, { useState } from "react";
-import { deleteTask, toggleTask } from "../redux";
+import React, { useEffect, useState } from "react";
+import { deleteTask, setTasks, toggleTask } from "../redux";
 import { useDispatch, useSelector } from "react-redux";
 import { Checked } from "../svg/Checked";
 import { IconClose } from "../svg/IconClose";
+import { useAppStore } from "../store";
+import eventBus from "../hooks/EventBus";
 
 export function TodoItems () {
+   const user = useAppStore.use.user()
    const [filter, setFilter] = useState('all');
    const tasks = useSelector(state => state.todo)
    const dispatch = useDispatch()
 
+   useEffect(() => {
+      if (user && Object.keys(user).length > 0) {
+         dispatch(setTasks(user.todos))
+      }
+   }, [user])
+
    const handleToggleTask = (value) => {
-      dispatch(toggleTask(value))
+      if (user && Object.keys(user).length > 0) {
+         fetch('/toggle_todo', {
+            method: 'POST',
+            body: value
+         }).then(r => {
+            if (!r.ok) {
+               eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
+            } else {
+               dispatch(toggleTask(value))
+            }
+         })
+      } else {
+         dispatch(toggleTask(value))
+      }
    }
 
    const handleDeleteTask = (value) => {
-      dispatch(deleteTask(value))
+      if (user && Object.keys(user).length > 0) {
+         fetch('/delete_todo', {
+            method: 'POST',
+            body: value
+         }).then(r => {
+            if (!r.ok) {
+               eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
+            } else {
+               dispatch(deleteTask(value))
+            }
+         })
+      } else {
+         dispatch(deleteTask(value))
+      }
    };
 
 
@@ -51,19 +86,19 @@ export function TodoItems () {
          <button
             onClick={() => setFilter('all')}
             className={filter === 'all' ? 'active' : ''}>
-            Tout
+            Toutes
          </button>
 
          <button
             onClick={() => setFilter('completed')}
             className={filter === 'completed' ? 'active' : ''}>
-            Fait
+            Faite(s)
          </button>
 
          <button
             onClick={() => setFilter('todo')}
             className={filter === 'todo' ? 'active' : ''}>
-            A faire
+            A faire(s)
          </button>
       </div>
 
