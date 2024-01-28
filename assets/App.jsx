@@ -11,6 +11,7 @@ import { Login } from "./pages/Login";
 import { ResetPassword } from "./pages/ResetPassword";
 import { ReinitPassword } from "./pages/ReinitPassword";
 import { Projects } from "./pages/Projects";
+import { Rxjs } from "./pages/Rxjs";
 
 function App () {
 
@@ -32,6 +33,7 @@ function App () {
                <Route path={'/projects'} element={<Projects />} />
                <Route path={'/contact'} element={<Contact />} />
                <Route path={'/todolist'} element={<Todolist />} />
+               <Route path={'/rxjs'} element={<Rxjs />} />
                <Route path={'/*'} element={<NotFound />} />
             </Route>
 

@@ -50,6 +50,10 @@ export function Menu () {
                </motion.li>
 
                <motion.li variants={linksVariants}>
+                  <NavLink to={"/rxjs"}>Rxjs</NavLink>
+               </motion.li>
+
+               <motion.li variants={linksVariants}>
                   <NavLink to={"/contact"}>Contact</NavLink>
                </motion.li>
 
