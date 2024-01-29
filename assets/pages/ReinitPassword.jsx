@@ -35,6 +35,7 @@ export function ReinitPassword () {
 
          <input
             placeholder={'Nouveau mot de passe'}
+            type="password"
             {...register("password", { required: true })}
             autoComplete={'current-password'} />
          {errors.password && <span>{errors.password.message}</span>}
@@ -42,9 +43,10 @@ export function ReinitPassword () {
 
          <input
             placeholder={'Répéter mot de passe'}
-            {...register("password", { required: true })}
+            type="password"
+            {...register("password2", { required: true })}
             autoComplete={'current-password'} />
-         {errors.password && <span>{errors.password.message}</span>}
+         {errors.password2 && <span>{errors.password2.message}</span>}
 
 
          <input
