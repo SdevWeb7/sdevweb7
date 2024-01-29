@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAppStore } from "../store";
 import { TodoItem } from "./TodoItem";
 import { Reorder } from 'framer-motion'
+import EventBus from "../hooks/EventBus";
 
 export function TodoItems () {
    const user = useAppStore.use.user()
@@ -17,7 +18,6 @@ export function TodoItems () {
       }
    }, [user])
 
-
    const filteredTodos = tasks.filter(todo => {
       switch (filter) {
          case 'completed':
@@ -29,13 +29,27 @@ export function TodoItems () {
       }
    });
 
+   const handleReorder = (newTasks) => {
+      fetch('/reorder_todos', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(newTasks)
+      }).then(r => {
+         if (!r.ok || r.status === 500) {
+            EventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
+         } else {
+            window.location.href = '/todolist'
+         }
+      })
+   };
 
    return (<>
-
       <Reorder.Group
          axis="y"
          values={tasks}
-         onReorder={() => setTasks(tasks)}>
+         onReorder={handleReorder}>
 
          {filteredTodos.map(t => <TodoItem key={Date.now() * Math.floor(Math.random() * 100)} value={t} />)}
       </Reorder.Group>
@@ -59,6 +73,5 @@ export function TodoItems () {
             A faire(s)
          </button>
       </div>
-
    </>)
 }

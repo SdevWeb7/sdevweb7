@@ -18,7 +18,7 @@ function App () {
    const updateUser = useAppStore.use.updateUser()
 
    useEffect(() => {
-      fetch('/me').then(r => r.json()).then(d => updateUser(d))
+      fetch('/api/me').then(r => r.json()).then(d => updateUser(d))
    }, [])
 
    return (

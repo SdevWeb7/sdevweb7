@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addTask } from "../redux";
 import { useDispatch } from "react-redux";
 import { Checked } from "../svg/Checked";
@@ -12,12 +12,22 @@ export function AddTodo () {
    const [newTask, setNewTask] = useState({value: '', isChecked: false})
    const dispatch = useDispatch()
 
+   useEffect(() => {
+      document.addEventListener('keydown', handleSubmit)
+      return () => {document.removeEventListener('keydown', handleSubmit)}
+   })
+   const handleSubmit = (e) => {
+      if (e.key === 'Enter') {
+         handleAddTask()
+      }
+   }
+
    const handleNewTaskValue = (e) => {
       setNewTask(oldTask => {
          return {...oldTask, value: e.target.value}
       })
    };
-   const toggleNewTask = (e) => {
+   const toggleNewTask = () => {
       setNewTask(oldTask => {
          return {...oldTask, isChecked: !oldTask.isChecked}
       })

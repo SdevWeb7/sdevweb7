@@ -9,7 +9,7 @@ const todoSlice = createSlice({
    ],
    reducers: {
       setTasks: (state, action) => {
-         return action.payload;
+         return action.payload
       },
       addTask: (state, action) => {
          state.push({
@@ -20,6 +20,7 @@ const todoSlice = createSlice({
       toggleTask: (state, action) => {
          const task = state.find(t => t.value === action.payload)
          task.isChecked = !task.isChecked
+         return state
       },
       deleteTask: (state, action) => {
          return state.filter(t => t.value !== action.payload)

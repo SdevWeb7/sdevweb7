@@ -18,7 +18,7 @@ class LoginController extends AbstractController
       return $this->json([]);
    }
 
-   #[Route(path: '/me', name: 'api_me')]
+   #[Route(path: '/api/me', name: 'api_me')]
    public function me(): JsonResponse
    {
       if (!$this->getUser()) {

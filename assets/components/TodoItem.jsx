@@ -12,11 +12,11 @@ export function TodoItem ({ value }) {
    const controls = useDragControls()
    const dispatch = useDispatch()
 
-   const handleToggleTask = (value) => {
+   const handleToggleTask = () => {
       if (user && Object.keys(user).length > 0) {
          fetch('/toggle_todo', {
             method: 'POST',
-            body: value
+            body: value.value
          }).then(r => {
             if (!r.ok) {
                eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
@@ -29,20 +29,20 @@ export function TodoItem ({ value }) {
       }
    }
 
-   const handleDeleteTask = (value) => {
+   const handleDeleteTask = () => {
       if (user && Object.keys(user).length > 0) {
          fetch('/delete_todo', {
             method: 'POST',
-            body: value
+            body: value.value
          }).then(r => {
             if (!r.ok) {
                eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
             } else {
-               dispatch(deleteTask(value))
+               dispatch(deleteTask(value.value))
             }
          })
       } else {
-         dispatch(deleteTask(value))
+         dispatch(deleteTask(value.value))
       }
    };
 
@@ -55,13 +55,13 @@ export function TodoItem ({ value }) {
       >
          <div
             className="checkbox"
-            onClick={() => handleToggleTask(value.value)}>
+            onClick={handleToggleTask}>
             {value.isChecked && <Checked />}
          </div>
 
          <p>{value.value}</p>
 
-         <IconClose onClick={() => handleDeleteTask(value.value)} className={'btn btn-close'} />
+         <IconClose onClick={handleDeleteTask} className={'btn btn-close'} />
 
          <div
             onPointerDown={(e) => controls.start(e)}

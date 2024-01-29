@@ -67,17 +67,28 @@ class TodolistController extends AbstractController {
       return $this -> json([]);
    }
 
-   #[Route( '/reorder_todo', name: 'api_reorder_todo', methods: ['POST'])]
-   public function reorder (Request $request, EntityManagerInterface $manager) : JsonResponse {
+   #[Route( '/reorder_todos', name: 'api_reorder_todo', methods: ['POST'])]
+   public function reorder (Request $request, EntityManagerInterface $manager, SerializerInterface $serializer) : JsonResponse {
       $user = $this->getUser();
 
       if (!$user) {
          return $this->json(['error' => 'utilisateur introuvable'], 500);
       }
 
-      $todos = $request->getContent();
+      $todos = json_decode($request->getContent());
 
-      dd($todos);
+      foreach ($user->getTodos() as $todo) {
+         $user->removeTodo($todo);
+         $manager->remove($todo);
+      }
+      foreach ($todos as $tempTodo) {
+         $todo = new Todo();
+         $todo->setValue($tempTodo->value);
+         $todo->setIsChecked($tempTodo->isChecked);
+         $user->addTodo($todo);
+         $manager->persist($todo);
+      }
+
       $manager->persist($user);
       $manager->flush();
 

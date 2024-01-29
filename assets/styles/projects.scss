@@ -29,6 +29,12 @@
     }
   }
 
+  .like {
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    align-self: center;
+  }
 }
 
 @media only screen and (max-width: 650px) {

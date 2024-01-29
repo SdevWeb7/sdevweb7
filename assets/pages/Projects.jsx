@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fader } from "../components/Fader";
+import { Heart } from "../svg/Heart";
+import { useAppStore } from "../store";
 
 export function Projects () {
+   const user = useAppStore.use.user();
+   const [userLikes, setUserLikes] = useState([])
+
+   useEffect(() => {
+      if (user) {
+         console.log(user.likes)
+      }
+   }, [])
 
    return (
       <>
@@ -14,6 +24,7 @@ export function Projects () {
             <img src="/images/designo.jpg" alt="Designo" />
 
             <div className="project-links">
+               <Heart className={'like'} />
                <a href="https://sdevweb7.github.io/Designo" target={'_blank'}>Démo Live: GithubPages</a>
 
                <a href="https://github.com/SdevWeb7/Designo" target={'_blank'}>Code Source: Github</a>
