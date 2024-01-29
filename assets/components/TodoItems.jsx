@@ -5,9 +5,11 @@ import { useAppStore } from "../store";
 import { TodoItem } from "./TodoItem";
 import { Reorder } from 'framer-motion'
 import EventBus from "../hooks/EventBus";
+import { v4 as uuidv4 } from 'uuid';
 
 export function TodoItems () {
    const user = useAppStore.use.user()
+   const updateUser = useAppStore.use.updateUser()
    const [filter, setFilter] = useState('all');
    const tasks = useSelector(state => state.todo)
    const dispatch = useDispatch()
@@ -37,10 +39,10 @@ export function TodoItems () {
          },
          body: JSON.stringify(newTasks)
       }).then(r => {
-         if (!r.ok || r.status === 500) {
+         if (!r.ok) {
             EventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
          } else {
-            window.location.href = '/todolist'
+            fetch('/api_me').then(r => r.json()).then(d => updateUser(d))
          }
       })
    };
@@ -51,7 +53,7 @@ export function TodoItems () {
          values={tasks}
          onReorder={handleReorder}>
 
-         {filteredTodos.map(t => <TodoItem key={Date.now() * Math.floor(Math.random() * 100)} value={t} />)}
+         {filteredTodos.map(t => <TodoItem key={uuidv4()} value={t} />)}
       </Reorder.Group>
 
       <div className="filter">

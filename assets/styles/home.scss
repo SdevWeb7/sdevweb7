@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas: "symfony arrow1 react"
                         ". arrow2 ."
-                        ". css .";
+                        "css arrow3 outils";
   grid-template-columns: 1fr 10rem 1fr;
   justify-items: center;
   align-items: center;
@@ -12,8 +12,9 @@
   .symfony {grid-area: symfony;}
   .react {grid-area: react;}
   .css {grid-area: css;}
+  .outils {grid-area: outils;}
 
-  .arrow1 {
+  .arrow1, .arrow3 {
     grid-area: arrow1;
     width: 3rem;
     height: 3rem;
@@ -24,6 +25,7 @@
     height: 3rem;
     transform: rotate(90deg);
   }
+  .arrow3 {grid-area: arrow3;}
 
   table {
     text-align: center;
@@ -51,10 +53,12 @@
                           "arrow1"
                           "react"
                           "arrow2"
-                          "css";
+                          "css"
+                          "arrow3"
+                          "outils";
     grid-template-columns: 1fr;
 
-    .arrow1 {
+    .arrow1, .arrow3 {
       transform: rotate(90deg);
     }
   }

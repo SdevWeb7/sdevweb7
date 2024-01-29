@@ -51,6 +51,7 @@ export function AddTodo () {
                      eventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
                   } else {
                      dispatch(addTask(newTask))
+                     setNewTask({value: "", isChecked: false})
                   }
                })
          } else {

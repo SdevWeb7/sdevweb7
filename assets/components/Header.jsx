@@ -26,7 +26,11 @@ export function Header () {
             </NavLink>
 
             <NavLink className={'navlink'} to={'/projects'}>Projects</NavLink>
+
             <NavLink className={'navlink'} to={'/todolist'}>Todolist</NavLink>
+
+            <NavLink className={'navlink'} to={'/rxjs'}>Rxjs</NavLink>
+
             <NavLink className={'navlink'} to={'/contact'}>Contact</NavLink>
          </nav>
 

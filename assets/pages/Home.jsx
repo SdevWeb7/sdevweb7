@@ -83,6 +83,31 @@ export function Home () {
             </tbody>
          </table>
          </Fader>
+
+         <ArrowDouble className={'arrow3'} />
+         <Fader className={'outils'}>
+            <table>
+               <thead>
+               <tr>
+                  <th>Outils</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+                  <td>GitHub</td>
+               </tr>
+               <tr>
+                  <td>Figma</td>
+               </tr>
+               <tr>
+                  <td>PhpStorm</td>
+               </tr>
+               <tr>
+                  <td>Linux</td>
+               </tr>
+               </tbody>
+            </table>
+         </Fader>
       </div>
       </>)
 }

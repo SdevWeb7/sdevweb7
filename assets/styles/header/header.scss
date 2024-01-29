@@ -48,12 +48,6 @@
 @media #{$mobile-min} {
   .header {
     padding: 0 2rem;
-
-    .navbar {
-      a:not(.logo-container) {
-        display: inline;
-      }
-    }
   }
 }
 
@@ -61,4 +55,7 @@
   .header {
     padding: 0 4rem;
   }
+}
+@media only screen and (min-width: 640px) {
+  .header .navbar a:not(.logo-container) {display: inline;}
 }

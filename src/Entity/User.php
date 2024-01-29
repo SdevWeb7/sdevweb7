@@ -5,7 +5,10 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
+use phpDocumentor\Reflection\Types\Nullable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -47,13 +50,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['api:show:user'])]
     private Collection $todos;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Like::class)]
-    private Collection $likes;
+   #[ORM\Column]
+   #[Groups(['api:show:user'])]
+   private array $likes = [];
+
 
     public function __construct()
     {
         $this->todos = new ArrayCollection();
-        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -168,34 +172,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Like>
-     */
-    public function getLikes(): Collection
+    public function getLikes(): array
     {
         return $this->likes;
     }
 
-    public function addLike(Like $like): static
+    public function setLikes(array $likes): static
     {
-        if (!$this->likes->contains($like)) {
-            $this->likes->add($like);
-            $like->setUser($this);
-        }
+        $this->likes = $likes;
 
         return $this;
     }
+   public function toggleLike(string $like): static
+   {
+      if (in_array($like, $this->likes)) {
+         $position = array_search($like, $this->likes);
+         unset($this -> likes[$position]);
+         $this -> likes = array_values($this -> likes);
+      } else {
+         $this->likes[] = $like;
+      }
 
-    public function removeLike(Like $like): static
-    {
-        if ($this->likes->removeElement($like)) {
-            // set the owning side to null (unless already changed)
-            if ($like->getUser() === $this) {
-                $like->setUser(null);
-            }
-        }
-
-        return $this;
-    }
+      return $this;
+   }
 
 }

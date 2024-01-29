@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Fader } from "../components/Fader";
 import { Heart } from "../svg/Heart";
 import { useAppStore } from "../store";
+import { HeartFill } from "../svg/HeartFill";
+import EventBus from "../hooks/EventBus";
 
 export function Projects () {
    const user = useAppStore.use.user();
-   const [userLikes, setUserLikes] = useState([])
+   const updateUser = useAppStore.use.updateUser();
 
-   useEffect(() => {
-      if (user) {
-         console.log(user.likes)
-      }
-   }, [])
+   const handleLike = (project) => {
+      fetch('/api_like', {
+         method: 'POST',
+         body: project
+      }).then(r => {
+         if (!r.ok) {
+            EventBus.emit('ToastMessage', [{type: 'error', messages: ['Problème serveur']}])
+         } else {
+            return r.json()
+         }
+      }).then(d => {
+         EventBus.emit('ToastMessage', [{type: 'success', messages: ["Merci d'avoir donné votre avis!"]}])
+         fetch('/api_me').then(r => r.json()).then(d => updateUser(d))
+      })
+
+   };
+
 
    return (
       <>
@@ -24,7 +38,10 @@ export function Projects () {
             <img src="/images/designo.jpg" alt="Designo" />
 
             <div className="project-links">
-               <Heart className={'like'} />
+               <div onClick={() => handleLike('designo')} className="like">
+                  {user && user.likes.includes('designo') ? <HeartFill /> : <Heart />}
+               </div>
+
                <a href="https://sdevweb7.github.io/Designo" target={'_blank'}>Démo Live: GithubPages</a>
 
                <a href="https://github.com/SdevWeb7/Designo" target={'_blank'}>Code Source: Github</a>
@@ -35,6 +52,9 @@ export function Projects () {
          <Fader>
          <div className="project project-pair">
             <div className="project-links">
+               <div onClick={() => handleLike('payapi')} className="like">
+                  {user && user.likes.includes('payapi') ? <HeartFill /> : <Heart />}
+               </div>
                <a href="https://sdevweb7.github.io/PayApi" target={'_blank'}>Démo Live: GithubPages</a>
 
                <a href="https://github.com/SdevWeb7/PayApi" target={'_blank'}>Code Source: Github</a>
@@ -49,6 +69,9 @@ export function Projects () {
                <img src="/images/sneakers.jpg" alt="Sneakers" />
 
                <div className="project-links">
+                  <div onClick={() => handleLike('sneakers')} className="like">
+                     {user && user.likes.includes('sneakers') ? <HeartFill /> : <Heart />}
+                  </div>
                   <a href="https://sdevweb7.github.io/Sneakers" target={'_blank'}>Démo Live: GithubPages</a>
 
                   <a href="https://github.com/SdevWeb7/Sneakers" target={'_blank'}>Code Source: Github</a>
@@ -59,6 +82,9 @@ export function Projects () {
          <Fader>
             <div className="project project-pair">
                <div className="project-links">
+                  <div onClick={() => handleLike('spacex')} className="like">
+                     {user && user.likes.includes('spacex') ? <HeartFill /> : <Heart />}
+                  </div>
                   <a href="https://sdevweb7.github.io/SpaceX" target={'_blank'}>Démo Live: GithubPages</a>
 
                   <a href="https://github.com/SdevWeb7/SpaceX" target={'_blank'}>Code Source: Github</a>
@@ -75,6 +101,10 @@ export function Projects () {
                <img src="/images/linksharing.jpg" alt="Links-sharing" />
 
                <div className="project-links">
+                  <div onClick={() => handleLike('linkssharing')} className="like">
+                     {user && user.likes.includes('linkssharing') ? <HeartFill /> : <Heart />}
+                  </div>
+
                   <a href="https://github.com/SdevWeb7/ChallengeLinks" target={'_blank'}>Code Source: Github</a>
                </div>
             </div>
@@ -83,6 +113,9 @@ export function Projects () {
          <Fader>
             <div className="project project-pair">
                <div className="project-links">
+                  <div onClick={() => handleLike('sdevweb7')} className="like">
+                     {user && user.likes.includes('sdevweb7') ? <HeartFill /> : <Heart />}
+                  </div>
                   <a href="https://github.com/SdevWeb7/sdevweb7" target={'_blank'}>Code Source: Github</a>
                </div>
 
@@ -95,6 +128,9 @@ export function Projects () {
                <img src="/images/sdevweb.jpg" alt="Sdevweb" />
 
                <div className="project-links">
+                  <div onClick={() => handleLike('sdevweb')} className="like">
+                     {user && user.likes.includes('sdevweb') ? <HeartFill /> : <Heart />}
+                  </div>
                   <a href="https://github.com/SdevWeb7/sdevweb" target={'_blank'}>Code Source: Github</a>
                </div>
 
