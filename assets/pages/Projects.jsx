@@ -39,7 +39,7 @@ export function Projects () {
 
             <div className="project-links">
                <div onClick={() => handleLike('designo')} className="like">
-                  {user && user.likes.includes('designo') ? <HeartFill /> : <Heart />}
+                  {user && user.likes && user.likes.includes('designo') ? <HeartFill /> : <Heart />}
                </div>
 
                <a href="https://sdevweb7.github.io/Designo" target={'_blank'}>Démo Live: GithubPages</a>
@@ -53,7 +53,7 @@ export function Projects () {
          <div className="project project-pair">
             <div className="project-links">
                <div onClick={() => handleLike('payapi')} className="like">
-                  {user && user.likes.includes('payapi') ? <HeartFill /> : <Heart />}
+                  {user && user.likes && user.likes.includes('payapi') ? <HeartFill /> : <Heart />}
                </div>
                <a href="https://sdevweb7.github.io/PayApi" target={'_blank'}>Démo Live: GithubPages</a>
 
@@ -70,7 +70,7 @@ export function Projects () {
 
                <div className="project-links">
                   <div onClick={() => handleLike('sneakers')} className="like">
-                     {user && user.likes.includes('sneakers') ? <HeartFill /> : <Heart />}
+                     {user && user.likes && user.likes.includes('sneakers') ? <HeartFill /> : <Heart />}
                   </div>
                   <a href="https://sdevweb7.github.io/Sneakers" target={'_blank'}>Démo Live: GithubPages</a>
 
@@ -83,7 +83,7 @@ export function Projects () {
             <div className="project project-pair">
                <div className="project-links">
                   <div onClick={() => handleLike('spacex')} className="like">
-                     {user && user.likes.includes('spacex') ? <HeartFill /> : <Heart />}
+                     {user && user.likes && user.likes.includes('spacex') ? <HeartFill /> : <Heart />}
                   </div>
                   <a href="https://sdevweb7.github.io/SpaceX" target={'_blank'}>Démo Live: GithubPages</a>
 
@@ -102,7 +102,7 @@ export function Projects () {
 
                <div className="project-links">
                   <div onClick={() => handleLike('linkssharing')} className="like">
-                     {user && user.likes.includes('linkssharing') ? <HeartFill /> : <Heart />}
+                     {user && user.likes && user.likes.includes('linkssharing') ? <HeartFill /> : <Heart />}
                   </div>
 
                   <a href="https://github.com/SdevWeb7/ChallengeLinks" target={'_blank'}>Code Source: Github</a>
@@ -114,7 +114,7 @@ export function Projects () {
             <div className="project project-pair">
                <div className="project-links">
                   <div onClick={() => handleLike('sdevweb7')} className="like">
-                     {user && user.likes.includes('sdevweb7') ? <HeartFill /> : <Heart />}
+                     {user && user.likes && user.likes.includes('sdevweb7') ? <HeartFill /> : <Heart />}
                   </div>
                   <a href="https://github.com/SdevWeb7/sdevweb7" target={'_blank'}>Code Source: Github</a>
                </div>
@@ -129,7 +129,7 @@ export function Projects () {
 
                <div className="project-links">
                   <div onClick={() => handleLike('sdevweb')} className="like">
-                     {user && user.likes.includes('sdevweb') ? <HeartFill /> : <Heart />}
+                     {user && user.likes && user.likes.includes('sdevweb') ? <HeartFill /> : <Heart />}
                   </div>
                   <a href="https://github.com/SdevWeb7/sdevweb" target={'_blank'}>Code Source: Github</a>
                </div>
