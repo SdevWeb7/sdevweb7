@@ -1,19 +1,19 @@
-<h1 align="center">Hi 👋, I'm Steven</h1>
+<h1 align="center">Salut 👋, C'est Steven</h1>
 <h3 align="center">Développeur Full Stack Typescript (Next.js)</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=sdevweb7&label=Profile%20views&color=0e75b6&style=flat" alt="sdevweb7" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=sdevweb7" alt="sdevweb7" /></a> </p>
 
-- 🔭 Je travaille actuellement sur une plateforme de formation Html, Css, Javascript, React.js et Next.js [Dev.js](https://dev-js7.vercel.app/)
+- 🔭 Je travaille actuellement sur une plateforme de formation Html, Css, Javascript, React.js et Next.js : [Dev.js](https://dev-js7.vercel.app/)
 
-- 🌱 Actuellement, j'apprends **Principes SOLID, Docker, Tests**
+- 🌱 Actuellement, j'apprends : **les principes SOLID, Docker, les tests**
 
-- 👨‍💻 Mon portfolio [https://sd-portfolio7.vercel.app/](https://sd-portfolio7.vercel.app/)
+- 👨‍💻 Mon portfolio : [https://sd-portfolio7.vercel.app/](https://sd-portfolio7.vercel.app/)
 
-- 💬 Ask me about **Next.js, Typescript, Tailwind, Shadcn, Prisma**
+- 💬 Mes compétences : **Next.js, Typescript, Tailwind, Shadcn, Prisma, principes SOLID**
 
-- 📫 How to reach me **sd.developper@gmail.com**
+- 📫 Me contacter : **sd.developper@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
