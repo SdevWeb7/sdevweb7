@@ -3,8 +3,6 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=sdevweb7&label=Profile%20views&color=0e75b6&style=flat" alt="sdevweb7" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=sdevweb7" alt="sdevweb7" /></a> </p>
-
 - 🔭 Je travaille actuellement sur une plateforme de formation Html, Css, Javascript, React.js et Next.js : [Dev.js](https://dev-js7.vercel.app/)
 
 - 🌱 Actuellement, j'apprends : **les principes SOLID, Docker, les tests**
@@ -28,3 +26,5 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=sdevweb7&show_icons=true&locale=en" alt="sdevweb7" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=sdevweb7&" alt="sdevweb7" /></p>
+
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=sdevweb7" alt="sdevweb7" /></a> </p>
